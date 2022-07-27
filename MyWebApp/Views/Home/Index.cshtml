@@ -1,0 +1,54 @@
+﻿@using OrderCloud.SDK;
+@model IEnumerable<Product> 
+<style>
+    thead {
+        width: 100%;
+        text-align:center;
+    }
+    td {
+        text-align: left;
+    }
+    th {
+        background-color: darkred;
+        color:white;
+    }
+    
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>My Product List from OrderCloud MarketPlace</p>
+    <form method="post" name="form1" id="form1">
+        <table>
+            <tr><td>Name: </td><td><input type="text" id="name" name="name" /></td></tr>
+            <tr><td>Description: </td><td><input type="text" id="desc" name="desc" /></td></tr>
+            <tr><td>Count: </td><td><input type="text" id="count" name="count"  /></td></tr>
+            <tr><td>Width: </td><td><input type="text" id="width" name="width" /></td></tr>
+            <tr><td>Height: </td><td><input type="text" id="height" name="height" /></td></tr>
+            <tr><td>Length: </td><td><input type="text" id="length"  name="length"/></td></tr>
+            <tr><td>Weight: </td><td><input type="text" id="weight" name="weight"/></td></tr>
+            <tr><td colspan="2"><input type="submit" tex="Submit" style="background-color:darkblue;color:white" /></td></tr>
+        </table>
+        <table id="example" class="container" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Count</th>
+                    <th>Width</th>
+                    <th>Height</th>
+                    <th>Length</th>
+                    <th>Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product m in Model)
+                {
+                    <tr><td>@m.Name</td><td>@m.Description</td><td>@m.SpecCount</td><td>@m.ShipWidth</td><td>@m.ShipHeight</td><td>@m.ShipLength</td><td>@m.ShipWeight</td></tr>
+
+                }
+            </tbody>
+        </table>
+    </form>
+
+</div>
